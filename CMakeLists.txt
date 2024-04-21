@@ -1,0 +1,14 @@
+cmake_minimum_required(VERSION 3.16.0)
+
+set(CMAKE_OSX_ARCHITECTURES "arm64;x86_64" CACHE STRING "" FORCE)
+
+project(Signix LANGUAGES CXX C VERSION 0.0.1)
+
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+if (UNIX AND NOT APPLE AND NOT ANDROID AND NOT HAIKU)
+    set(X11WL ON)
+endif()
+
+add_subdirectory(src/sgx)
